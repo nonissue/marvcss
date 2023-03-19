@@ -1,3 +1,40 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: #e4d9cd;
+  background: #ffcc99;
+}
+/* 
+
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
 /* Not reuqired */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -7,15 +44,24 @@ body {
 /* Center container in viewport */
 .container {
   margin: 0 auto;
-  max-width: 600px;
+  width: 960px;
 }
 
-/* Style page header */
-header h1 {
+h1,
+h2,
+h3 {
+  font-size: 24px;
   text-align: center;
-  font-weight: bold;
-  margin: 1em 0;
-  font-size: 16px;
+  padding: 12px 0;
+}
+
+h1 {
+  color: black;
+}
+
+h3 {
+  font-size: 20px;
+  text-align: left;
 }
 
 /* Style page navigation */
@@ -24,9 +70,12 @@ nav ul {
   padding: 0;
   margin: 0;
   display: flex;
+  gap: 13px;
+  box-sizing: border-box;
+  justify-content: center;
 }
 
-nav li {
+/* nav li {
   width: calc((100% / 3) - (1em * 2 / 3));
 
   display: block;
@@ -38,87 +87,78 @@ nav li {
 
 nav li:nth-child(3) {
   margin-right: 0;
-}
+} */
 
-/* Rules for styling first section of page */
-
-/* This targets the first section of the page,
-which doesn't have a css class or id, but we can 
-use :nth-child(1) to target it */
-main section:nth-child(1) {
-  background: green;
-  margin-top: 1em;
-  padding: 1em;
-}
-
-/* Style header in first section */
-main section:nth-child(1) h2 {
-  background: orange;
+nav li {
+  font-size: 20px;
+  background-color: #cc6600;
+  border: 2px dashed #663300;
+  margin: 0 0 26px 0;
+  width: 311.3333435058594px;
+  /* width: calc(100% / 3);/ */
   text-align: center;
-  padding: 0.5em;
+  padding: 6px 0;
 }
 
-/* Style div that holds the 'content' of the first section */
+nav a, nav a:active, a:visited {
+  color: #e4d9cd;
+  text-decoration: none;
+}
+
+h1 {
+  font-weight: bold;
+  color: #663300;
+  margin: 0;
+}
+
+section {
+  background: #999966;
+  border: 2px dashed #663300;
+  margin: 0 0 26px 0;
+  padding: 26px;
+}
+
+section h2,
+section h3 {
+  background: #cc6600;
+
+  margin: 0 0 26px 0;
+}
+
+section h2 {
+  border: 2px dashed #663300;
+  margin-bottom: 0px;
+}
+section h3 {
+  margin: 0;
+  margin-bottom: 12px;
+  padding: 0;
+}
+
+section div {
+  background: #cc6600;
+  /* border: 2px dashed #663300; */
+  /* margin: 0 0 26px 0; */
+}
+
+img {
+  width: 411px;
+}
+
 .section-one {
-  background: green;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  background: #999966;
+  gap: 26px;
+  padding: 26px 0 0px 0;
 }
 
-/* Style child divs within 'content' div of first section */
 .section-one > div {
-  /* we can use calc to set our width to dynamically be one third of parent width
-  we have to get creative to account for margin between columns */
-  width: calc((100% / 2) - (1em * 1 / 2));
-  padding: 1em;
-  background: orange;
-  margin-top: 1em;
-  font-size: 8px;
-}
+  width: calc(411px + 12px + 12px + 2px + 2px);
+  /* width:  */
+  border: 2px dashed #663300;
+  background: #cc6600;
 
-/* Adjacent sibling selector to add column margin */
-.section-one > div + div {
-  margin-left: 1em;
-}
-
-/* Remove column margin from the FIRST element in each row */
-.section-one > div:nth-child(3n) {
-  margin-left: 0em;
-}
-
-/* Same stuff but for the second section */
-
-section:nth-child(2) {
-  background: green;
-  padding: 1em;
-  margin-top: 1em;
-}
-
-section:nth-child(2) h2 {
-  padding: 0.5em;
-  text-align: center;
-  background: orange;
-}
-
-.section-two {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.section-two > div {
-  width: calc((100% / 3) - (1em * 2 / 3));
-  padding: 1em;
-  background: orange;
-  margin-top: 1em;
-  font-size: 8px;
-}
-
-.section-two > div + div {
-  margin-left: 1em;
-}
-
-.section-two > div:nth-child(4n) {
-  margin-left: 0em;
+  padding: 12px;
 }
